@@ -4,9 +4,14 @@
     v-bind="formConfig"
     class="dynamic-form"
   >
-
+    <el-row
+      v-for = " (row , index) in layout.rows"
+      :key="index">
+      <el-col
+        v-for = " (item , i) in row"
+        :key = "i"
+        :span = "item.span">
     <dynamic-form-item
-      v-for="item in formConfig.formItemList"
       v-if="value[item.key]!==undefined"
       :key="item.key"
       :item="item"
@@ -15,7 +20,8 @@
       :style="{'min-width':columnMinWidth}"
       @input="handleInput($event, item.key)"
     ></dynamic-form-item>
-
+      </el-col>
+    </el-row>
     <slot></slot>
 
   </el-form>
@@ -34,6 +40,35 @@ export default {
     },
     columnMinWidth: {
       type: String,
+    },
+  },
+  computed: {
+    // 对组件进行布局，分行分列
+    layout() {
+      debugger;
+      const layoutCofig = {};
+      const cols = this.formConfig.cols ? this.formConfig.cols : 2;
+      const colspan = 24 / cols;
+      layoutCofig.colspan = colspan;
+      const rows = [];
+      let row = [];
+      let occupy = 0;
+      this.formConfig.formItemList.forEach((item) => {
+        const span = item.colspan ? item.colspan : 1;
+        item.span = span * colspan;
+        if ((occupy + span) > cols) {
+          rows.push(row);
+          row = [];
+          row.push(item);
+          occupy = span;
+        } else {
+          row.push(item);
+          occupy += span;
+        }
+      });
+      rows.push(row);
+      layoutCofig.rows = rows;
+      return layoutCofig;
     },
   },
   mounted() {

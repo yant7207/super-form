@@ -2,6 +2,7 @@
 export default {
   "input": {
     "type": 'input', // 必要, String
+    "colspan": 1, //占据列数
     // "subtype": 'text',
     "label": '文本', // 必要, String
     "disabled": false, //禁用, Boolean
@@ -20,6 +21,7 @@ export default {
   },
   "number": {
     "type": 'number', // number 类型目前采用的是"输入前"限制, 使用rules验证会出现bug
+    "colspan": 1, //占据列数
     "label": '数字',
     "value": 16,
     "decimal1": 2, // 允许的小数位数
@@ -30,12 +32,14 @@ export default {
   },
   "switch": {
     "type": 'switch',
+    "colspan": 1, //占据列数
     "label": '开关',
     "appearance": "switch", // 外观, 'switch'开关(默认) / checkbox勾选
     "value": true
   },
   "radio": {
     "type": 'radio',
+    "colspan": 1, //占据列数
     "label": '单选',
     "value": '',
     // "options": [
@@ -53,6 +57,7 @@ export default {
   },
   "checkbox": {
     "type": 'checkbox',
+    "colspan": 1, //占据列数
     "label": '多选',
     "value": [],
     "border": true,
@@ -66,6 +71,7 @@ export default {
   },
   "select": {
     "type": 'select',
+    "colspan": 1, //占据列数
     "label": '下拉',
     "value": '',
     "disabled": false,
@@ -76,6 +82,7 @@ export default {
   },
   "date": {
     "type": 'date',
+    "colspan": 1, //占据列数
     // "subtype": 'year',
     // "label": '年',
     "value": null,
@@ -89,6 +96,7 @@ export default {
   },
   "cascader": {
     "type": 'cascader',
+    "colspan": 1, //占据列数
     "label": '级联选择',
     "disabled": false,
     "filterable": false,
@@ -100,6 +108,7 @@ export default {
   },
   "richtext": {
     "type": "richtext",
+    "colspan": 2, //占据列数
     "label": "内容",
     "value": '',
   }

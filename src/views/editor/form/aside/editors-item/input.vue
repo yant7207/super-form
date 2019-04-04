@@ -5,6 +5,11 @@
         el-input(v-model="formItem.label")
       el-form-item(label="占位文本")
         el-input(v-model="formItem.placeholder")
+      el-form-item(label="占据列数")
+        el-input-number(controls-position="right" size="mini"
+          v-model = "formItem.colspan"
+          :min="1"
+          :max="8")
       el-form-item(label="键名")
         el-input(:value="formItem.key" readonly)
       el-form-item(label="默认值")

@@ -18,6 +18,13 @@
       "key": "labelWidth",
       "value": "",
       "placeholder": "css width属性, 可不填, 但会影响对齐"
+    },{
+      "type": "input",
+      "subtype": "number",
+      "label": "排版列数",
+      "key": "cols",
+      "value": "",
+      "placeholder": "Form 表单列数"
     },
     {
       "type": "radio",
